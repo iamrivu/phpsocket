@@ -1,0 +1,17 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteCond %{REQUEST_FILENAME}\.phtml -f
+RewriteRule ^(.*)$ $1.phtml [NC,L]
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME}\.htm -f
+RewriteRule ^(.*)$ $1.htm [NC,L]
+# RewriteEngine On
+# RewriteCond %{HTTPS} !on
+# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+Options -Indexes
+ErrorDocument 403 "Access Forbidden"
+ErrorDocument 404 "Requested URL was not found"
+ErrorDocument 500 "Internal Error"
